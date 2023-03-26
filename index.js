@@ -30,7 +30,7 @@ async function getErc20Tokens(walletAddress) {
 
     return Array.from(tokenMap.values());
   } catch (error) {
-    console.error('Error fetching ERC-20 token transactions:', error.message);
+    console.error(`Error fetching ERC-20 token transactions: ${error.message}`);
     return [];
   }
 }
@@ -126,13 +126,17 @@ function getHumanReadableTokenBalance(balanceWei, decimals) {
   for (const tokenInfo of tokenList) {
     const tokenSymbol = tokenInfo.tokenSymbol;
     const tokenContractAddress = tokenInfo.contractAddress;
-    const balanceWei = await getTokenBalanceAtBlock(walletAddress, tokenContractAddress, blockNumber);
-    const decimals = await getTokenDecimals(tokenContractAddress);
-    walletBalances.push({
-      symbol: tokenSymbol,
-      address: tokenContractAddress,
-      balance: getHumanReadableTokenBalance(balanceWei, decimals)
-    });
+    try {
+      const balanceWei = await getTokenBalanceAtBlock(walletAddress, tokenContractAddress, blockNumber);
+      const decimals = await getTokenDecimals(tokenContractAddress);
+      walletBalances.push({
+        symbol: tokenSymbol,
+        address: tokenContractAddress,
+        balance: getHumanReadableTokenBalance(balanceWei, decimals)
+      });
+    } catch (error) {
+      console.error(`Error getting info for ${tokenSymbol}: ${error.message}`);
+    }
   }
 
   const table = new Table({
