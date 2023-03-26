@@ -1,0 +1,75 @@
+# Node.js (npm, yarn) dependencies
+node_modules/
+
+# Python dependencies
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+*.egg
+
+# Java, Kotlin (Gradle, Maven)
+target/
+build/
+*.iml
+.idea/
+.gradle/
+*.log
+
+# C# (Visual Studio)
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.dll
+*.exe
+*.pdb
+*.cache
+*.swp
+*.bak
+*.swm
+*.swn
+*.swx
+*.swo
+*.swn
+*.bak
+*.tmp
+*.tlog
+*.log
+*.vsp
+*.vspx
+*.unsuccessfulbuild
+*.vssscc
+*.vspscc
+*.bak
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Visual Studio Code
+.vscode/
